@@ -1,11 +1,8 @@
 package org.montylib.interfaces.hardware.actuators;
 
 import java.util.function.Supplier;
-
 import org.montylib.util.PIDConstants;
-
 import com.revrobotics.CANSparkMax;
-
 import edu.wpi.first.math.controller.PIDController;
 
 public class NeoV1 extends CANSparkMax implements MotorInterface {

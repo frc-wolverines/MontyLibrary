@@ -1,11 +1,8 @@
 package org.montylib.interfaces.hardware.actuators;
 
 import java.util.function.Supplier;
-
 import org.montylib.util.PIDConstants;
-
 import com.revrobotics.CANSparkFlex;
-
 import edu.wpi.first.math.controller.PIDController;
 
 public class NeoVortex extends CANSparkFlex implements MotorInterface {

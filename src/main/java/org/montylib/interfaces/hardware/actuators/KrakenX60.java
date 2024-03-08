@@ -1,11 +1,8 @@
 package org.montylib.interfaces.hardware.actuators;
 
 import java.util.function.Supplier;
-
 import org.montylib.util.PIDConstants;
-
 import com.ctre.phoenix6.hardware.TalonFX;
-
 import edu.wpi.first.math.controller.PIDController;
 
 public class KrakenX60 extends TalonFX implements MotorInterface {

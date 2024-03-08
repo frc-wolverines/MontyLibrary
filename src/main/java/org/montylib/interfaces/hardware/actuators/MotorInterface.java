@@ -1,7 +1,6 @@
 package org.montylib.interfaces.hardware.actuators;
 
 import java.util.function.Supplier;
-
 import org.montylib.util.PIDConstants;
 
 public interface MotorInterface {
