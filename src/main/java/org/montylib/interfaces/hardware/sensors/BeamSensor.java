@@ -6,8 +6,4 @@ public class BeamSensor extends DigitalInput {
     public BeamSensor(int channel) {
         super(channel);
     }
-    
-    public boolean isBroken() {
-        return get();
-    }
 }
