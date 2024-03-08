@@ -26,7 +26,7 @@ public class Math {
     /**
      * Discards a value if it is within a certain threshold
      * @param value the number that will be affected
-     * @param threshold the value in which a -threshold -> threshold deadzone will be incurred using
+     * @param threshold the value in which a -threshold to threshold deadzone will be incurred using
      * @return a value, outside of a given threshold, otherwise it is 0.0
      */
     public static double threshold(double value, double threshold) {
