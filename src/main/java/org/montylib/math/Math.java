@@ -1,4 +1,4 @@
-package org.montylib.util;
+package org.montylib.math;
 
 public class Math {
     

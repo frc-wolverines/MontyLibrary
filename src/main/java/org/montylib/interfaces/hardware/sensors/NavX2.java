@@ -1,6 +1,6 @@
 package org.montylib.interfaces.hardware.sensors;
 
-import org.montylib.util.Math;
+import org.montylib.math.Math;
 
 import com.kauailabs.navx.frc.AHRS;
 
