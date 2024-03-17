@@ -1,10 +1,7 @@
 package org.montylib.vision;
 
 import java.util.function.Supplier;
-
 import org.montylib.math.Angle2d;
-
-import edu.wpi.first.math.geometry.Translation2d;
 
 /**A class that fixes an Apriltag's data from a fixed camera being physically offset from a target*/
 public class ApriltagOffsetFixer {
@@ -17,8 +14,9 @@ public class ApriltagOffsetFixer {
     }
 
     public Angle2d getAdjustedAngle(Angle2d apriltag_angle) {
-        double distance_meters = apriltagDistanceFromCamera.get();
-        double height_offset = apriltagOffset;
+        double distance_meters = apriltagDistanceFromCamera.get(); //Cosine
+        double height_offset = apriltagOffset; //Added to initial Sine
+        double apriltag_height = distance_meters / java.lang.Math.sin(apriltag_angle.angle_y);
 
         return new Angle2d(apriltag_angle.angle_x, 0.0);
     }
