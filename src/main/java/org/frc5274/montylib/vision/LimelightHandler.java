@@ -1,4 +1,4 @@
-package org.montylib.vision;
+package org.frc5274.montylib.vision;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;

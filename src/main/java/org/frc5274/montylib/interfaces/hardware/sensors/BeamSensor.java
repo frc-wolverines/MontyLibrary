@@ -1,4 +1,4 @@
-package org.montylib.interfaces.hardware.sensors;
+package org.frc5274.montylib.interfaces.hardware.sensors;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 

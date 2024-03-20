@@ -1,4 +1,4 @@
-package org.montylib.math;
+package org.frc5274.montylib.math;
 
 /**A class that stores the location of an object using a pair of angles */
 public class Angle2d {

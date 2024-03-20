@@ -1,4 +1,4 @@
-package org.montylib.kinematics;
+package org.frc5274.montylib.kinematics;
 
 /**A class that represents the current state of a mechanism */
 public class MechanismState {

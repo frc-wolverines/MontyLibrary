@@ -1,7 +1,8 @@
-package org.montylib.vision;
+package org.frc5274.montylib.vision;
 
 import java.util.function.Supplier;
-import org.montylib.math.Angle2d;
+
+import org.frc5274.montylib.math.Angle2d;
 
 /**A class that fixes an Apriltag's data from a fixed camera being physically offset from a target*/
 public class ApriltagOffsetFixer {

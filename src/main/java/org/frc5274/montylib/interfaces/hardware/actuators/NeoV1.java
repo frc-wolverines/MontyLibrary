@@ -1,11 +1,13 @@
-package org.montylib.interfaces.hardware.actuators;
+package org.frc5274.montylib.interfaces.hardware.actuators;
 
 import java.util.function.Supplier;
-import org.montylib.util.PIDConstants;
-import com.ctre.phoenix6.hardware.TalonFX;
+
+import org.frc5274.montylib.util.PIDConstants;
+
+import com.revrobotics.CANSparkMax;
 import edu.wpi.first.math.controller.PIDController;
 
-public class Falcon500 extends TalonFX implements MotorInterface {
+public class NeoV1 extends CANSparkMax implements MotorInterface {
 
     private PIDController positionController = new PIDController(0.0, 0.0, 0.0);
     private PIDController velocityController = new PIDController(0.0, 0.0, 0.0);
@@ -17,12 +19,12 @@ public class Falcon500 extends TalonFX implements MotorInterface {
 
     @Override
     public double getActuatedPosition() {
-        return getPosition().getValueAsDouble() * actuationFactor;
+        return getEncoder().getPosition() * actuationFactor;
     }
 
     @Override
     public double getActuatedVelocity() {
-        return getVelocity().getValueAsDouble() * actuationFactor;
+        return getEncoder().getVelocity() * actuationFactor;
     }
 
     @Override
@@ -45,7 +47,7 @@ public class Falcon500 extends TalonFX implements MotorInterface {
         if (doesUseAlternatePositionSource()) {
             set(positionController.calculate(alternatePositionSource.get(), position));
         } else {
-            set(positionController.calculate(getPosition().getValueAsDouble(), position));
+            set(positionController.calculate(getEncoder().getPosition(), position));
         }
     }
 
@@ -59,7 +61,7 @@ public class Falcon500 extends TalonFX implements MotorInterface {
         if (doesUseAlternateVelocitySource()) {
             set(velocityController.calculate(alternateVelocitySource.get(), velocity));
         } else {
-            set(velocityController.calculate(getVelocity().getValueAsDouble(), velocity));
+            set(velocityController.calculate(getEncoder().getVelocity(), velocity));
         }
     }
 
@@ -86,9 +88,9 @@ public class Falcon500 extends TalonFX implements MotorInterface {
     @Override
     public void setAlternativeVelocitySource(Supplier<Double> alternate_source_supplier) {
         alternateVelocitySource = alternate_source_supplier;
-    }   
+    }
 
-    public Falcon500(int deviceId) {
-        super(deviceId);
+    public NeoV1(int deviceId) {
+        super(deviceId, MotorType.kBrushless);
     }
 }

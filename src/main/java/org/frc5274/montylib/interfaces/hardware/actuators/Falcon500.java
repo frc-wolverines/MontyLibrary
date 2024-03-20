@@ -1,11 +1,13 @@
-package org.montylib.interfaces.hardware.actuators;
+package org.frc5274.montylib.interfaces.hardware.actuators;
 
 import java.util.function.Supplier;
-import org.montylib.util.PIDConstants;
-import com.revrobotics.CANSparkMax;
+
+import org.frc5274.montylib.util.PIDConstants;
+
+import com.ctre.phoenix6.hardware.TalonFX;
 import edu.wpi.first.math.controller.PIDController;
 
-public class NeoV1 extends CANSparkMax implements MotorInterface {
+public class Falcon500 extends TalonFX implements MotorInterface {
 
     private PIDController positionController = new PIDController(0.0, 0.0, 0.0);
     private PIDController velocityController = new PIDController(0.0, 0.0, 0.0);
@@ -17,12 +19,12 @@ public class NeoV1 extends CANSparkMax implements MotorInterface {
 
     @Override
     public double getActuatedPosition() {
-        return getEncoder().getPosition() * actuationFactor;
+        return getPosition().getValueAsDouble() * actuationFactor;
     }
 
     @Override
     public double getActuatedVelocity() {
-        return getEncoder().getVelocity() * actuationFactor;
+        return getVelocity().getValueAsDouble() * actuationFactor;
     }
 
     @Override
@@ -45,7 +47,7 @@ public class NeoV1 extends CANSparkMax implements MotorInterface {
         if (doesUseAlternatePositionSource()) {
             set(positionController.calculate(alternatePositionSource.get(), position));
         } else {
-            set(positionController.calculate(getEncoder().getPosition(), position));
+            set(positionController.calculate(getPosition().getValueAsDouble(), position));
         }
     }
 
@@ -59,7 +61,7 @@ public class NeoV1 extends CANSparkMax implements MotorInterface {
         if (doesUseAlternateVelocitySource()) {
             set(velocityController.calculate(alternateVelocitySource.get(), velocity));
         } else {
-            set(velocityController.calculate(getEncoder().getVelocity(), velocity));
+            set(velocityController.calculate(getVelocity().getValueAsDouble(), velocity));
         }
     }
 
@@ -86,9 +88,9 @@ public class NeoV1 extends CANSparkMax implements MotorInterface {
     @Override
     public void setAlternativeVelocitySource(Supplier<Double> alternate_source_supplier) {
         alternateVelocitySource = alternate_source_supplier;
-    }
+    }   
 
-    public NeoV1(int deviceId) {
-        super(deviceId, MotorType.kBrushless);
+    public Falcon500(int deviceId) {
+        super(deviceId);
     }
 }

@@ -1,8 +1,8 @@
-package org.montylib.vision;
+package org.frc5274.montylib.vision;
 
 import java.util.function.Supplier;
 
-import org.montylib.math.Coordinate2d;
+import org.frc5274.montylib.math.Coordinate2d;
 
 /**A class representing a Camera that tracks the position of an AprilTag target */
 public class TargetCamera {

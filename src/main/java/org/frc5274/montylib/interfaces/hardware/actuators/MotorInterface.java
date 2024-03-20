@@ -1,7 +1,8 @@
-package org.montylib.interfaces.hardware.actuators;
+package org.frc5274.montylib.interfaces.hardware.actuators;
 
 import java.util.function.Supplier;
-import org.montylib.util.PIDConstants;
+
+import org.frc5274.montylib.util.PIDConstants;
 
 public interface MotorInterface {
     abstract double getActuatedPosition();
