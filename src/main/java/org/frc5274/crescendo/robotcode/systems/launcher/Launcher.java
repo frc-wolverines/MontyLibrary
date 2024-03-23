@@ -27,6 +27,7 @@ public class Launcher extends SubsystemBase {
 
     private boolean feedbackRequested = false;
     private LauncherMode currentMode;
+    private boolean overriden = false;
 
     public Launcher(LauncherConfig config) {
 
@@ -52,6 +53,9 @@ public class Launcher extends SubsystemBase {
         primerMotor.setIdleMode(IdleMode.kBrake);
 
         noteStatusDetector = new BeamSensor(0);
+
+        stop();
+        resetPosition();
     }
 
     @Override
@@ -75,6 +79,7 @@ public class Launcher extends SubsystemBase {
             DynamicDataLog.log("LAUNCHER - Note Primed", isNotePrimed());
             DynamicDataLog.log("LAUNCHER - Has Target", hasTarget());
             DynamicDataLog.log("LAUNCHER - Is Launch Good", isLaunchGood());
+            DynamicDataLog.log("LAUNCHER - Is Overriden", overriden);
         }
     }
 
@@ -109,6 +114,14 @@ public class Launcher extends SubsystemBase {
         };
     }
 
+    public void resetPosition() {
+        launcherPivotMotor.setPosition(0);
+    }
+
+    public void override() {
+        overriden = true;
+    }
+
     public void setDesiredState(LauncherState state) {
 
         topLauncherMotor.set(state.getLauncherPower());
@@ -125,7 +138,14 @@ public class Launcher extends SubsystemBase {
 
         topLauncherMotor.set(mode.getOutputPower(launcher_input));
         bottomLauncherMotor.set(mode.getOutputPower(launcher_input));
-        primerMotor.set(primer_input);
+
+        if(!isNotePrimed() || isLaunchGood()) {
+            primerMotor.set(primer_input);
+        } else if (overriden) {
+            primerMotor.set(primer_input);
+        } else {
+            primerMotor.stopMotor();
+        }
 
         launcherPivotMotor.runToActuatedPosition(mode.getOutputAngle());
 
