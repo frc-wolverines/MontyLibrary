@@ -9,6 +9,10 @@ public class NoteGOState {
         state = new MechanismState(front_intake_power, rear_intake_power, indexer_power);
     }
 
+    public NoteGOState(double unified_power) {
+        state = new MechanismState(unified_power, unified_power, unified_power);
+    }
+
     public double getFrontIntakePower() {
         return state.getState(0);
     }

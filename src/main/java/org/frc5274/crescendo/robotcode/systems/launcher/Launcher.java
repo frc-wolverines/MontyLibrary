@@ -91,6 +91,10 @@ public class Launcher extends SubsystemBase {
         return LimelightHandler.getTV("");
     }
 
+    public boolean isIdle() {
+        return currentMode == LauncherMode.IDLE;
+    }
+
     public boolean hasInput() {
         if (topLauncherMotor.get() != 0 && bottomLauncherMotor.get() != 0 && launcherPivotMotor.get() != 0) {
             return true;
@@ -116,6 +120,10 @@ public class Launcher extends SubsystemBase {
 
     public void resetPosition() {
         launcherPivotMotor.setPosition(0);
+    }
+
+    public boolean isPriming() {
+        return (primerMotor.get() != 0) && (!isNotePrimed());
     }
 
     public void override() {
@@ -147,8 +155,11 @@ public class Launcher extends SubsystemBase {
             primerMotor.stopMotor();
         }
 
-        launcherPivotMotor.runToActuatedPosition(mode.getOutputAngle());
-
+        if(isPriming()) {
+            launcherPivotMotor.runToActuatedPosition(LauncherMode.IDLE.getOutputAngle());
+        } else {
+            launcherPivotMotor.runToActuatedPosition(mode.getOutputAngle());
+        }
     }
 
     public void stop() {

@@ -31,6 +31,8 @@ public class NoteGO extends SubsystemBase {
         indexer.enableFeedback(enabled);
     }
 
+    
+
     public void setDesiredState(NoteGOState state) {
         intake.setDesiredState(state);
         indexer.setDesiredState(state);
