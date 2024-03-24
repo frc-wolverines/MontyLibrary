@@ -24,4 +24,11 @@ public class Coordinate2d {
     public Coordinate2d getCoordinatePercentage() {
         return new Coordinate2d(x / bounds_x, y / bounds_y);
     }
+
+    public double getDistance(Coordinate2d f1, Coordinate2d f2) {
+        double x_delta = f1.x >= f2.x ? f1.x - f2.x : f2.x - f1.x;
+        double y_delta = f1.y >= f2.y ? f1.y - f2.y : f2.y - f1.y;
+
+        return java.lang.Math.sqrt(java.lang.Math.pow(x_delta, 2) + java.lang.Math.pow(y_delta, 2));
+    }
 }
