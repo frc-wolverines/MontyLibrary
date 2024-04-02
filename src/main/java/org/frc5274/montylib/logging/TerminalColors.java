@@ -1,4 +1,4 @@
-package org.frc5274.montylib.util;
+package org.frc5274.montylib.logging;
 
 public class TerminalColors {
     public static final String ANSI_RESET = "\u001B[0m";

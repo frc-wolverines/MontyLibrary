@@ -4,7 +4,7 @@ import com.ctre.phoenix6.signals.NeutralModeValue;
 import com.revrobotics.CANSparkBase.IdleMode;
 
 public class MotorBehavior {
-    public enum ZeroPowerBehavior {
+    public enum IdleBehavior {
         BRAKE, 
         COAST;
 

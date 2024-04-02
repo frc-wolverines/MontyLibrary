@@ -22,7 +22,10 @@ public class Coordinate2d {
     }
 
     public Coordinate2d getCoordinatePercentage() {
-        return new Coordinate2d(x / bounds_x, y / bounds_y);
+        double x_percentage = x >= 0 ? x / bounds_x : x / -bounds_x;
+        double y_percentage = y >= 0 ? y / bounds_y : y / -bounds_y;
+
+        return new Coordinate2d(x_percentage, y_percentage);
     }
 
     public double getDistance(Coordinate2d f1, Coordinate2d f2) {

@@ -32,4 +32,25 @@ public class Math {
     public static double threshold(double value, double threshold) {
         return java.lang.Math.abs(value) >= threshold ? value : 0.0;
     }
+
+    /**
+     * Finds the range of a set of numbers
+     * @param values any numbers that will be used to find a range
+     * @return the range of the given values
+     */
+    public static double range(double... values) {
+        double lower_bound = values[0];
+        double upper_bound = values[0];
+
+        for  (int i = 0; i < values.length; i++) {
+            if (values[i] > upper_bound) {
+                upper_bound = values[i];
+            }
+            if (values[i] < lower_bound) {
+                lower_bound = values[i];
+            }
+        }
+
+        return upper_bound - lower_bound;
+    }
 }

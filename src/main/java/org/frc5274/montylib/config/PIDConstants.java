@@ -1,4 +1,4 @@
-package org.frc5274.montylib.util;
+package org.frc5274.montylib.config;
 
 import edu.wpi.first.math.controller.PIDController;
 

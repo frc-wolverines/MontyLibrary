@@ -1,4 +1,4 @@
-package org.frc5274.montylib.util;
+package org.frc5274.montylib.logging;
 
 import edu.wpi.first.util.sendable.Sendable;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
