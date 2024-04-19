@@ -1,6 +1,5 @@
 package org.frc5274.montylib.devices.assemblies;
 
-import org.frc5274.montylib.config.MotorBehavior.IdleBehavior;
 import org.frc5274.montylib.devices.MotorConfig;
 
 public class ModuleConfig {

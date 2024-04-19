@@ -89,4 +89,20 @@ public class EncodedMotor {
             gearRatio = gear_ratio;
         }
     }
+
+    public double getPosition(boolean actuated) {
+        return actuated ? 
+            (doesUseAlternatePosition ? 
+                alternatePositionSupplier.get() * gearRatio : defaultPositionSupplier.get() * gearRatio) : 
+            (doesUseAlternatePosition ? 
+                alternatePositionSupplier.get() : defaultPositionSupplier.get());
+    }
+
+    public double getVelocity(boolean actuated) {
+        return actuated ? 
+            (doesUseAlternateVelocity ? 
+                alternateVelocitySupplier.get() * gearRatio : defaultVelocitySupplier.get() * gearRatio) : 
+            (doesUseAlternatePosition ? 
+                alternateVelocitySupplier.get() : defaultVelocitySupplier.get());
+    }
 }
