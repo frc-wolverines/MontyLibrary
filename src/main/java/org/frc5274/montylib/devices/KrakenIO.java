@@ -15,6 +15,7 @@ public class KrakenIO extends EncodedMotor {
         motorController.setNeutralMode(config.idle_behavior.toNeutralMode());
 
         setPowerFunction(motorController::set);
+        setResetFunction(motorController::setPosition);
         setDefaultPositionSupplier(motorController.getPosition()::getValueAsDouble);
         setDefaultVelocitySupplier(motorController.getVelocity()::getValueAsDouble);
     }

@@ -1,12 +1,12 @@
 package org.frc5274.montylib.config;
 
 public class Direction {
-    public enum MotorDirection {
+    public enum AngularDirection {
         CLOCKWISE,
         COUNTER_CLOCKWISE;
 
         public boolean isInverted() {
-            return this == COUNTER_CLOCKWISE;
+            return this == CLOCKWISE;
         }
     }
 }

@@ -13,6 +13,7 @@ public class EncodedMotor {
     public Supplier<Double> defaultPositionSupplier, defaultVelocitySupplier = null;
     public boolean doesUseAlternatePosition, doesUseAlternateVelocity = false;
     public PIDController positionController, velocityController = null;
+    public Consumer<Double> resetConsumer = null;
     public double gearRatio = 0.0;
 
     public EncodedMotor(PIDConstants position_constants, PIDConstants velocity_constants) {
@@ -28,6 +29,10 @@ public class EncodedMotor {
 
     protected void setPowerFunction(Consumer<Double> power_consumer) {
         setPowerConsumer = power_consumer;
+    }
+
+    protected void setResetFunction(Consumer<Double> reset_consumer) {
+        resetConsumer = reset_consumer;
     }
 
     public void setAlternatePositionSupplier(Supplier<Double> position_supplier) {
@@ -104,5 +109,19 @@ public class EncodedMotor {
                 alternateVelocitySupplier.get() * gearRatio : defaultVelocitySupplier.get() * gearRatio) : 
             (doesUseAlternatePosition ? 
                 alternateVelocitySupplier.get() : defaultVelocitySupplier.get());
+    }
+
+    public void stopOutput() {
+        setPowerConsumer.accept(0.0);
+    }
+
+    public void reset() {
+        stopOutput();
+        resetConsumer.accept(0.0);
+    }
+
+    public void reset(double position) {
+        stopOutput();
+        resetConsumer.accept(position);
     }
 }
