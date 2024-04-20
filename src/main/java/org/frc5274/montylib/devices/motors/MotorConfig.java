@@ -1,4 +1,4 @@
-package org.frc5274.montylib.devices;
+package org.frc5274.montylib.devices.motors;
 
 import org.frc5274.montylib.config.PIDConstants;
 import org.frc5274.montylib.config.Direction.AngularDirection;

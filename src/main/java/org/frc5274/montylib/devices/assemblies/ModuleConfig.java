@@ -1,7 +1,7 @@
 package org.frc5274.montylib.devices.assemblies;
 
-import org.frc5274.montylib.devices.EncoderConfig;
-import org.frc5274.montylib.devices.MotorConfig;
+import org.frc5274.montylib.devices.motors.MotorConfig;
+import org.frc5274.montylib.devices.sensors.EncoderConfig;
 
 public class ModuleConfig {
     public final MotorConfig drive_motor_config;

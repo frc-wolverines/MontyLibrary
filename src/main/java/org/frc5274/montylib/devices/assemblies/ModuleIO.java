@@ -1,7 +1,7 @@
 package org.frc5274.montylib.devices.assemblies;
 
-import org.frc5274.montylib.devices.AbsoluteEncoder;
-import org.frc5274.montylib.devices.EncodedMotor;
+import org.frc5274.montylib.devices.motors.EncodedMotor;
+import org.frc5274.montylib.devices.sensors.AbsoluteEncoder;
 
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
@@ -13,7 +13,7 @@ public class ModuleIO {
     public EncodedMotor pivotMotor;
     public AbsoluteEncoder encoder;
 
-    public static double wheelCircumference = 1;
+    private static double wheelCircumference = 1;
 
     public ModuleIO(EncodedMotor drive_motor_object, EncodedMotor pivot_motor_object, AbsoluteEncoder module_encoder) {
         driveMotor = drive_motor_object;

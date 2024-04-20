@@ -1,4 +1,4 @@
-package org.frc5274.montylib.devices;
+package org.frc5274.montylib.devices.sensors;
 
 import com.ctre.phoenix6.hardware.CANcoder;
 

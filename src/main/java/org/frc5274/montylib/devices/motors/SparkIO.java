@@ -1,17 +1,17 @@
-package org.frc5274.montylib.devices;
+package org.frc5274.montylib.devices.motors;
 
-import com.revrobotics.CANSparkFlex;
+import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
-public class VortexIO extends EncodedMotor {
+public class SparkIO extends EncodedMotor {
     
-    private CANSparkFlex motorController;
+    private CANSparkMax motorController;
 
-    public VortexIO(MotorConfig constants) {
+    public SparkIO(MotorConfig constants) {
         super(constants.position_constants, constants.velocity_constants);
         setGearRatio(constants.gear_ratio);
 
-        motorController = new CANSparkFlex(constants.id, MotorType.kBrushless);
+        motorController = new CANSparkMax(constants.id, MotorType.kBrushless);
         motorController.setInverted(constants.direction.isInverted());
         motorController.setIdleMode(constants.idle_behavior.toIdleMode());
 

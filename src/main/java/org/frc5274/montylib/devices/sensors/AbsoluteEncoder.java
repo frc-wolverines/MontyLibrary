@@ -1,4 +1,4 @@
-package org.frc5274.montylib.devices;
+package org.frc5274.montylib.devices.sensors;
 
 import java.util.function.Supplier;
 
