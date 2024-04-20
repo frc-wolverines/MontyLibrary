@@ -16,6 +16,7 @@ public class SparkIO extends EncodedMotor {
         motorController.setIdleMode(constants.idle_behavior.toIdleMode());
 
         setPowerFunction(motorController::set);
+        setResetFunction(motorController.getEncoder()::setPosition);
         setDefaultPositionSupplier(motorController.getEncoder()::getPosition);
         setDefaultVelocitySupplier(motorController.getEncoder()::getVelocity);
     }
