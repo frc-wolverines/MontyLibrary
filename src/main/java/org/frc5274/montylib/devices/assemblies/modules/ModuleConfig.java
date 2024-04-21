@@ -1,4 +1,4 @@
-package org.frc5274.montylib.devices.assemblies;
+package org.frc5274.montylib.devices.assemblies.modules;
 
 import org.frc5274.montylib.devices.motors.MotorConfig;
 import org.frc5274.montylib.devices.sensors.EncoderConfig;
