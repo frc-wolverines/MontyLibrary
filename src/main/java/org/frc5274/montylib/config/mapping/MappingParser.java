@@ -10,11 +10,11 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class MappingParser {
-    public JSONObject mapping;
+    public JSONObject map;
 
     public MappingParser(String filepath) throws FileNotFoundException, IOException, ParseException {
         JSONParser parser = new JSONParser();
         Reader fileReader = new FileReader(filepath);
-        mapping = (JSONObject) parser.parse(fileReader);
+        map = (JSONObject) parser.parse(fileReader);
     }
 }
