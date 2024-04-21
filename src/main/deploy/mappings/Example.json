@@ -1,0 +1,13 @@
+{
+    "leftRight" : {
+        "type": "motor",
+        "id": 1,
+        "direction": "c",
+        "behavior": "brake",
+        "pidconstants": {
+            "position": [0.0, 0.0, 0.0],
+            "velocity": [0.0, 0.0, 0.0]
+        },
+        "ratio": 1.1
+    }
+}
