@@ -18,7 +18,7 @@ public class MappingReader {
         if(MappingType.fromKey((String) object.get("type")) == expected_type) {
             return object;
         } else {
-            new MessageLog(name + ": expected type not found", MessageType.ERROR);
+            new MessageLog(name + ": expected mapping type not found", MessageType.ERROR);
             return null; 
         }
     }
