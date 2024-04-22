@@ -86,6 +86,30 @@ public class MappingReader {
 
     public EncoderConfig toEncoderConfig(String encoder_name) {
         
+        JSONObject mapping = getObject(encoder_name, MappingType.ENCODER);
+
+        int id = ((Long) mapping.get("id")).intValue();
+
+        AngularDirection direction;
+        
+        if((String) mapping.get("direction") == "c") {
+            direction = AngularDirection.CLOCKWISE;
+        } else if ((String) mapping.get("direction") == "cc") {
+            direction = AngularDirection.COUNTER_CLOCKWISE;
+        } else {
+            new MessageLog(encoder_name + ": direction mapping invalid, default: CC", MessageType.WARNING);
+            direction = AngularDirection.COUNTER_CLOCKWISE;
+        }
+
+        double offset = (Double) mapping.get("offset");
+        double ratio = (Double) mapping.get("ratio");
+
+        return new EncoderConfig(
+            id, 
+            ratio, 
+            offset, 
+            direction
+        );
     }
 
     public enum MappingType {

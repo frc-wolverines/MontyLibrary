@@ -9,5 +9,12 @@
             "velocity": [0.0, 0.0, 0.0]
         },
         "ratio": 1.1
+    },
+    "leftRightCANCoder": {
+        "type": "encoder",
+        "id": 2,
+        "direction": "c",
+        "offset": 0.0,
+        "ratio": 1.1
     }
 }
