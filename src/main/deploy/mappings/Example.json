@@ -16,5 +16,9 @@
         "direction": "c",
         "offset": 0.0,
         "ratio": 1.1
+    },
+    "genericDevice": {
+        "type": "generic",
+        "id": 3
     }
 }

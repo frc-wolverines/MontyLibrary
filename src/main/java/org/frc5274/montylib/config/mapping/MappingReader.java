@@ -112,6 +112,11 @@ public class MappingReader {
         );
     }
 
+    public int toGenericId(String generic_device_name) {
+        JSONObject mapping = getObject(generic_device_name, MappingType.GENERIC);
+        return ((Long) mapping.get("id")).intValue();
+    }
+
     public enum MappingType {
         MOTOR,
         ENCODER,
