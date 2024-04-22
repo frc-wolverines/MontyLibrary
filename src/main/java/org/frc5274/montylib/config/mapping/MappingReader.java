@@ -4,6 +4,7 @@ import org.frc5274.montylib.config.PIDConstants;
 import org.frc5274.montylib.config.Direction.AngularDirection;
 import org.frc5274.montylib.config.MotorBehavior.IdleBehavior;
 import org.frc5274.montylib.devices.motors.MotorConfig;
+import org.frc5274.montylib.devices.sensors.EncoderConfig;
 import org.frc5274.montylib.logging.MessageLog;
 import org.frc5274.montylib.logging.MessageLog.MessageType;
 import org.json.simple.JSONArray;
@@ -81,6 +82,10 @@ public class MappingReader {
             velocityConstants, 
             gearRatio
         );
+    }
+
+    public EncoderConfig toEncoderConfig(String encoder_name) {
+        
     }
 
     public enum MappingType {
