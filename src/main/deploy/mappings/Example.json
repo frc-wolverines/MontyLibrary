@@ -2,7 +2,7 @@
     "leftRight" : {
         "type": "motor",
         "id": 1,
-        "direction": "c",
+        "direction": "clockwise",
         "behavior": "brake",
         "pidconstants": {
             "position": [0.0, 0.0, 0.0],
@@ -13,7 +13,7 @@
     "leftRightCANCoder": {
         "type": "encoder",
         "id": 2,
-        "direction": "c",
+        "direction": "clockwise",
         "offset": 0.0,
         "ratio": 1.1
     },

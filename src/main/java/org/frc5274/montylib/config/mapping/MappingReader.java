@@ -37,12 +37,12 @@ public class MappingReader {
         AngularDirection direction;
         IdleBehavior idleBehavior;
         
-        if((String) mapping.get("direction") == "c") {
+        if((String) mapping.get("direction") == "clockwise") {
             direction = AngularDirection.CLOCKWISE;
-        } else if ((String) mapping.get("direction") == "cc") {
+        } else if ((String) mapping.get("direction") == "counter_clockwise") {
             direction = AngularDirection.COUNTER_CLOCKWISE;
         } else {
-            new MessageLog(motor_name + ": direction mapping invalid, default: CC", MessageType.WARNING);
+            new MessageLog(motor_name + ": direction mapping invalid, default: COUNTER CLOCKWISE", MessageType.WARNING);
             direction = AngularDirection.COUNTER_CLOCKWISE;
         }
 
@@ -92,12 +92,12 @@ public class MappingReader {
 
         AngularDirection direction;
         
-        if((String) mapping.get("direction") == "c") {
+        if((String) mapping.get("direction") == "clockwise") {
             direction = AngularDirection.CLOCKWISE;
-        } else if ((String) mapping.get("direction") == "cc") {
+        } else if ((String) mapping.get("direction") == "counter_clockwise") {
             direction = AngularDirection.COUNTER_CLOCKWISE;
         } else {
-            new MessageLog(encoder_name + ": direction mapping invalid, default: CC", MessageType.WARNING);
+            new MessageLog(encoder_name + ": direction mapping invalid, default: COUNTER CLOCKWISE", MessageType.WARNING);
             direction = AngularDirection.COUNTER_CLOCKWISE;
         }
 

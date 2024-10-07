@@ -15,10 +15,10 @@ public class ModuleIO {
 
     private static double wheelCircumference = 1;
 
-    public ModuleIO(EncodedMotor drive_motor_object, EncodedMotor pivot_motor_object, AbsoluteEncoder module_encoder) {
-        driveMotor = drive_motor_object;
-        pivotMotor = pivot_motor_object;
-        encoder = module_encoder;
+    public ModuleIO(EncodedMotor driveMotor, EncodedMotor pivotMotor, AbsoluteEncoder moduleEncoder) {
+        this.driveMotor = driveMotor;
+        this.pivotMotor = pivotMotor;
+        this.encoder = moduleEncoder;
     }
 
     public double getTrackPosition() {
@@ -53,14 +53,14 @@ public class ModuleIO {
         return new SwerveModuleState(getTrackVelocity(), getRotation2d());
     }
 
-    public void setDesiredState(SwerveModuleState desired_state) {
+    public void setDesiredState(SwerveModuleState desiredState) {
 
-        if (desired_state.speedMetersPerSecond < 0.001) {
+        if (desiredState.speedMetersPerSecond < 0.001) {
             return;
         }
 
-        driveMotor.runToVelocity(desired_state.speedMetersPerSecond / wheelCircumference, true);
-        pivotMotor.runToPosition(desired_state.angle.getRotations(), true);
+        driveMotor.runToVelocity(desiredState.speedMetersPerSecond / wheelCircumference, true);
+        pivotMotor.runToPosition(desiredState.angle.getRotations(), true);
     }
 
     public void stop() {
@@ -72,7 +72,7 @@ public class ModuleIO {
         pivotMotor.reset(getAbsoluteAngle());
     }
 
-    public static void setWheelCircumference(double circumference_meters) {
-        wheelCircumference = circumference_meters;
+    public static void setWheelCircumference(double circumferenceMeters) {
+        wheelCircumference = circumferenceMeters;
     }
 }
